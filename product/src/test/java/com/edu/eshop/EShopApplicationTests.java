@@ -1,6 +1,7 @@
 package com.edu.eshop;
 
 import com.edu.eshop.dto.ProductRequest;
+import com.edu.eshop.repository.ProductRepository;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +18,9 @@ import org.testcontainers.junit.jupiter.Testcontainers;
 
 import java.math.BigDecimal;
 
+import static org.hamcrest.Matchers.hasSize;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 
 @SpringBootTest
 @Testcontainers
@@ -32,6 +35,8 @@ class EShopApplicationTests {
 
 	@Autowired
 	private ObjectMapper objectMapper;
+	@Autowired
+	private ProductRepository productRepository;
 
 	@DynamicPropertySource
 	static void setProperties(DynamicPropertyRegistry dynamicPropertyRegistry){
@@ -45,8 +50,31 @@ class EShopApplicationTests {
 
 		mockMvc.perform(MockMvcRequestBuilders.post("/api/product")
 				.contentType(MediaType.APPLICATION_JSON)
-				.contentType(requestString))
+				.content(requestString))
 				.andExpect(status().isCreated());
+
+		productRepository.deleteAll();
+	}
+
+	@Test
+	void shouldGetAllProducts() throws Exception {
+		ProductRequest request = getProductRequest();
+		String requestString = objectMapper.writeValueAsString(request);
+
+		mockMvc.perform(MockMvcRequestBuilders.post("/api/product")
+						.contentType(MediaType.APPLICATION_JSON)
+						.content(requestString))
+				.andExpect(status().isCreated());
+		mockMvc.perform(MockMvcRequestBuilders.post("/api/product")
+						.contentType(MediaType.APPLICATION_JSON)
+						.content(requestString))
+				.andExpect(status().isCreated());
+
+		mockMvc.perform(MockMvcRequestBuilders.get("/api/product"))
+				.andExpect(jsonPath("$", hasSize(2)))
+				.andExpect(jsonPath("$[0].id").exists())
+				.andExpect(jsonPath("$[1].id").exists())
+				.andExpect(status().isOk());
 	}
 
 	private ProductRequest getProductRequest() {

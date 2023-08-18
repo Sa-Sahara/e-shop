@@ -1,7 +1,7 @@
-package com.edu.eshop;
+package com.edu.product_mcrs;
 
-import com.edu.eshop.dto.ProductRequest;
-import com.edu.eshop.repository.ProductRepository;
+import com.edu.product_mcrs.dto.ProductRequest;
+import com.edu.product_mcrs.repository.ProductRepository;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,7 +25,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @SpringBootTest
 @Testcontainers
 @AutoConfigureMockMvc
-class EShopApplicationTests {
+class ProductMcrsAppTests {
 
 	@Container
 	static MongoDBContainer container = new MongoDBContainer("mongo"); //name of docker image

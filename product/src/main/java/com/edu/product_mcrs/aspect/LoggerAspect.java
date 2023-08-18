@@ -1,4 +1,4 @@
-package com.edu.eshop.aspect;
+package com.edu.product_mcrs.aspect;
 
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.ProceedingJoinPoint;
@@ -17,7 +17,7 @@ public class LoggerAspect {
     public void controllers() {
     }
 
-    @Pointcut("within(com.edu.eshop.service..*)")
+    @Pointcut("within(com.edu.product_mcrs.service..*)")
     public void services() {
     }
 
@@ -30,7 +30,10 @@ public class LoggerAspect {
         Object result = null;
         try {
             result = joinPoint.proceed();
-            log.info("Exit: {}.{}() with result = {}", joinPoint.getSignature().getDeclaringType(), joinPoint.getSignature().getName(), result);
+            log.info("Exit: {}.{}() with result = {}",
+                    joinPoint.getSignature().getDeclaringType(),
+                    joinPoint.getSignature().getName(),
+                    result);
 
         } catch (Exception e) {
             log.info("Exception: " + e.getMessage());

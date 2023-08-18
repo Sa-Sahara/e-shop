@@ -1,4 +1,4 @@
-package com.edu.eshop.dto;
+package com.edu.product_mcrs.dto;
 
 import lombok.*;
 

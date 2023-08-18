@@ -1,8 +1,8 @@
-package com.edu.eshop.controller;
+package com.edu.product_mcrs.controller;
 
-import com.edu.eshop.dto.ProductRequest;
-import com.edu.eshop.dto.ProductResponse;
-import com.edu.eshop.service.ProductService;
+import com.edu.product_mcrs.dto.ProductRequest;
+import com.edu.product_mcrs.dto.ProductResponse;
+import com.edu.product_mcrs.service.ProductService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;

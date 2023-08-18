@@ -1,9 +1,9 @@
-package com.edu.eshop.service;
+package com.edu.product_mcrs.service;
 
-import com.edu.eshop.dto.ProductRequest;
-import com.edu.eshop.dto.ProductResponse;
-import com.edu.eshop.model.Product;
-import com.edu.eshop.repository.ProductRepository;
+import com.edu.product_mcrs.dto.ProductRequest;
+import com.edu.product_mcrs.dto.ProductResponse;
+import com.edu.product_mcrs.model.Product;
+import com.edu.product_mcrs.repository.ProductRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;

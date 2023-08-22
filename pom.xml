@@ -16,7 +16,8 @@
     <description>Microservices project</description>
     <modules>
         <module>product</module>
-        <module>service</module>
+        <module>order</module>
+        <module>inventory</module>
     </modules>
     <properties>
         <java.version>17</java.version>

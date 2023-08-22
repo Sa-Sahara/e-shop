@@ -1,0 +1,18 @@
+http://localhost:8080/api/product
+//POST //GET
+{
+  "name" : "iphone",
+  "description" : "iphone 13 so cool",
+  "price" : "100000"
+}
+
+http://localhost:8081/api/order
+{
+    "orderLineItemsDtoList":[
+        {
+            "skucode":"iphone_14",
+            "price":1200,
+            "quantity":1
+        }
+    ]
+}

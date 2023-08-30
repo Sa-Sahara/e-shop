@@ -7,12 +7,30 @@ http://localhost:8080/api/product
 }
 
 http://localhost:8081/api/order
+//POST
 {
     "orderLineItemsDtoList":[
         {
             "skucode":"iphone_14",
             "price":1200,
             "quantity":1
+        }
+    ]
+}
+
+http://localhost:8081/api/order
+//POST
+{
+    "orderLineItemsDtoList":[
+        {
+            "skucode":"iphone_14",
+            "price":1200,
+            "quantity":100000
+        },
+        {
+            "skucode":"iphone_14_red",
+            "price":1200,
+            "quantity":10000
         }
     ]
 }

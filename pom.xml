@@ -21,6 +21,7 @@
         <module>product</module>
         <module>order</module>
         <module>inventory</module>
+        <module>discovery-server</module>
     </modules>
 
     <properties>
@@ -34,7 +35,14 @@
             <dependency>
                 <groupId>org.testcontainers</groupId>
                 <artifactId>testcontainers-bom</artifactId>
-                <version>${testcontainers.version}</version>
+                <version>1.18.3</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>2022.0.3</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
